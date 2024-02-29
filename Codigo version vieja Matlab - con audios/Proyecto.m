@@ -4,5 +4,5 @@ clear all;
 
 Fs=2000;
 
-% debugeador(Fs);
- afinador(Fs);
+debugeador(Fs);
+%  afinador(Fs);
