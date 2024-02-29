@@ -4,8 +4,15 @@ clear all;
 
 Fs=4000;
 
+
+%create a window with two buttons to execute either debugeador or afinador
+f = figure('Position',[360,500,500,200]);
+b1 = uicontrol('Parent',f,'Style','pushbutton','String','Debugeador','Position',[100,60,100,40],'Callback',@debugeador);
+b2 = uicontrol('Parent',f,'Style','pushbutton','String','Afinador','Position',[300,60,100,40],'Callback',@afinador);
+
+
 % debugeador(Fs);
-afinador(Fs);
+% afinador(Fs);
 
 function debugeador(Fs)
     Rec= audiorecorder(Fs,16,1);
@@ -22,6 +29,22 @@ function debugeador(Fs)
     plotear_filtradas(filtered_signals, Fs);
     debug_maximos(filtered_signals, Fs);
 end
+
+% function for creating and updating gauge using uigauge and drawing the frequency
+function gauge = createGauge(gauge, freq)
+
+    % if gauge is not created, create it
+    if isempty(gauge)
+        gauge = uigauge('Value', freq, 'Limits', [0 500], 'ScaleColors', [1 0 0; 1 1 0; 0 1 0]);
+        gauge.Layout.Row = 1;
+        gauge.Layout.Column = 1;
+    else
+        % update the gauge value
+        gauge.Value = freq;
+    end
+
+end
+
 
 function afinador(Fs)
     while(true)
