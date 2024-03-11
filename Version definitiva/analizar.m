@@ -30,6 +30,6 @@ function [cuerda, frecuencia] = analizar(filtered_signals, Fs)
         end
     end
 
-    fprintf('La cuerda que se est� tocando es la %i\n', cuerda)
+    fprintf('La cuerda que se esta tocando es la %i\n', cuerda)
     
 end

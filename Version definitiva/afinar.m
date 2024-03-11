@@ -21,8 +21,8 @@ function texto = afinar(cuerda, frecuencia)
         if cuerda == i 
             frec_conocida = frecuencias(i);
 
-            if frecuencia > frec_conocida*0.98 && frecuencia < frec_conocida*1.02
-                texto = sprintf('La cuerda %i est� afinada\n', cuerda);
+            if frecuencia > frec_conocida*0.998 && frecuencia < frec_conocida*1.002
+                texto = sprintf('La cuerda %i esta afinada (%.2f)\n', cuerda, frecuencia);
             else
                 if frecuencia < frec_conocida
                     texto = sprintf('%.2f - %.2f Hz \t - Ajuste la cuerda %i\n', frec_conocida, frecuencia, cuerda);

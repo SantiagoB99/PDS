@@ -4,11 +4,12 @@ function afinador(Fs)
 
     figure('OuterPosition', [0.5, 0, 0.5, 1]);
 
+   Rec=audiorecorder(Fs,16,1);
+
    while(true)
 
-        Rec=audiorecorder(Fs,16,1);
 
-        recordblocking(Rec,0.5);
+        recordblocking(Rec,0.25);
 
         % transforma el audio en la variable y
         y=getaudiodata(Rec);
