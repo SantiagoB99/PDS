@@ -9,7 +9,7 @@ function afinador(Fs)
    while(true)
 
 
-        recordblocking(Rec,0.25);
+        recordblocking(Rec,0.5);
 
         % transforma el audio en la variable y
         y=getaudiodata(Rec);

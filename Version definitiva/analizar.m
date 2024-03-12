@@ -2,13 +2,16 @@ function [cuerda, frecuencia] = analizar(filtered_signals, Fs)
 
     maximos = cell(1, size(filtered_signals, 2));
 
+    fft_length = 3000*16;
+
     % Calculate single-sided amplitude spectrum
     for i = 1:size(filtered_signals, 2)
-        P2 = abs(fft(filtered_signals{i})/length(filtered_signals{i}));
-        P1 = P2(1:length(filtered_signals{i})/2+1);
+        % señal normalizada
+        P2 = abs(fft(filtered_signals{i}, fft_length)/fft_length);
+        P1 = P2(1:fft_length/2 + 1);
         P1(2:end-1) = 2*P1(2:end-1);
         
-        f = Fs*(0:(length(filtered_signals{i})/2))/length(filtered_signals{i});
+        f = Fs*(0:(fft_length/2))/fft_length;
         
         % Find frequency with maximum amplitude
         [max_amplitude, index_max] = max(P1);
