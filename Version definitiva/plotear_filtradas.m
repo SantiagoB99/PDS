@@ -6,7 +6,7 @@ function plotear_filtradas(filtered_signals, Fs, y, cuerda)
     subplot(4, 3, 1:3);
     plot(f*Fs/max(f), abs(furY));
     xlim([0, 500]);
-    ylim([0, 10]);
+    ylim([0, 20]);
     title('FFT: Señal orignal');
     xlabel('Frecuencia');
     ylabel('Amplitud');
@@ -24,7 +24,7 @@ function plotear_filtradas(filtered_signals, Fs, y, cuerda)
         subplot(4, 3, i + 3);
         plot(f*Fs/max(f), abs(furY), "Color", color);
         xlim([0, 500]);
-        ylim([0, 10]);
+        ylim([0, 20]);
         title(['Señal N° ' num2str(i)]);
         xlabel('Frecuencia');
         ylabel('Amplitud');
@@ -40,7 +40,7 @@ function plotear_filtradas(filtered_signals, Fs, y, cuerda)
         plot(f*Fs/max(f), abs(furY));
         
         xlim([0, 500]);
-        ylim([0, 10]);
+        ylim([0, 20]);
         title(['Suma de todos los filtros']);
         xlabel('Frecuencia');
         ylabel('Amplitud');

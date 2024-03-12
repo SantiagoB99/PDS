@@ -2,7 +2,7 @@ clc;
 close all;
 clear all;
 
-Fs=2000;
+Fs=4000;
 
 % debugeador(Fs);
 % afinador(Fs);

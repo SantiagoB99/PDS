@@ -40,7 +40,7 @@ function filtered_signals = filtrar(y, Fs)
     % Filter each channel and output to an array
     filtered_signals = cell(1, size(cuerdas, 1));
     for i = 1:size(cuerdas, 1)
-        [B, A] = butter(6, cuerdas(i, :), 'bandpass');
+        [B, A] = butter(4, cuerdas(i, :), 'bandpass');
         BP = {B, A};
         filtered_signals{i} = filter(BP{1}, BP{2}, y);
     end
